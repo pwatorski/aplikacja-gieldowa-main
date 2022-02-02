@@ -1,0 +1,29 @@
+<div class="main-container">
+  <div
+    class="div-chart"
+    *ngIf="
+      multi != undefined &&
+      multi[0] != undefined &&
+      multi[0].series != undefined
+    "
+  >
+    <ngx-charts-line-chart
+      [view]="viewSize"
+      [results]="multi"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [xAxisTicks]="[
+        multi[0].series[0].name,
+        multi[0].series[multi[0].series.length - 1].name
+      ]"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [autoScale]="scale"
+      (select)="onSelect($event)"
+    >
+    </ngx-charts-line-chart>
+  </div>
+</div>

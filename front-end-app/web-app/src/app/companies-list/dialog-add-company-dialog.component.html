@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Dodaj spółkę</h1>
+<div mat-dialog-content>
+  <p>Podaj symbol spółki, którą chcesz dodać do systemu</p>
+  <mat-form-field appearance="standard">
+    <mat-label>Symbol spółki</mat-label>
+    <input matInput [(ngModel)]="data.name" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <div *ngIf="flag == false">
+    <button mat-raised-button color="primary" (click)="onAddClick()">
+      Dodaj
+    </button>
+  </div>
+  <div *ngIf="flag == true">
+    <mat-spinner [diameter]="50"></mat-spinner>
+  </div>
+</div>

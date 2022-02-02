@@ -1,0 +1,31 @@
+<div class="search-container">
+  <mat-form-field
+    appearance="standard"
+    style="padding-left: 5%; padding-right: 5%; width: 90%"
+  >
+    <mat-label>Wyszukiwanie</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="np. Tesla"
+      style="color: black"
+      #input
+    />
+  </mat-form-field>
+</div>
+<div *ngIf="filteredCandidates == undefined || filteredCandidates == []">
+  <mat-progress-bar
+    mode="indeterminate"
+    style="width: 90%; margin: auto; margin-top: 50px"
+  ></mat-progress-bar>
+</div>
+<div class="main-container">
+  <div *ngFor="let candidate of filteredCandidates">
+    <div class="card">
+      {{ candidate[0] }} [ {{ candidate[1] }} ]
+      <button mat-icon-button (click)="addCompany(candidate[1])">
+        <mat-icon style="margin-left: 3px" color="primary">add_box</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+CREATE TABLE IF NOT EXISTS API_data_source(
+   api_id serial PRIMARY KEY,
+   api_name VARCHAR(100) UNIQUE NOT NULL,
+   last_checked TIMESTAMP NOT NULL
+);
+CREATE TABLE IF NOT EXISTS Stock (
+   stock_id serial PRIMARY KEY,
+   stock_name VARCHAR(100) UNIQUE NOT NULL,
+   api_id INT NOT NULL,
+   FOREIGN KEY (api_id)
+      REFERENCES API_data_source (api_id)
+);
+CREATE TABLE IF NOT EXISTS Company (
+   company_id serial PRIMARY KEY,
+   company_name VARCHAR(100) UNIQUE NOT NULL,
+   stock_id INT NOT NULL,
+   FOREIGN KEY (stock_id)
+      REFERENCES Stock (stock_id)
+);
+CREATE TABLE IF NOT EXISTS Actions (
+   action_id serial PRIMARY KEY,
+   date TIMESTAMP NOT NULL,
+   value FLOAT NOT NULL,
+   company_id INT NOT NULL,
+   FOREIGN KEY (company_id)
+      REFERENCES Company (company_id)
+);

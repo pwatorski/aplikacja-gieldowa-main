@@ -1,0 +1,4 @@
+::ng-deep .blue-snackbar {
+  background-color: orange !important;
+  color: black;
+}

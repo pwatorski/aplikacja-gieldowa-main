@@ -1,0 +1,110 @@
+<div style="width: 90%; margin: auto">
+  <mat-stepper linear #stepper>
+    <mat-step [stepControl]="firstFormGroup" [editable]="true">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Wprowadź plik z danymi</ng-template>
+        <div>
+          <input
+            #csvInput
+            hidden="true"
+            type="file"
+            onclick="this.value=null"
+            (change)="csvInputChange($event)"
+            accept=".csv,.txt"
+            formControlName="firstCtrl"
+            required
+          />
+          <button mat-flat-button color="primary" (click)="csvInput.click()">
+            Dodaj plik
+          </button>
+          <div style="color: black">{{ fileName }}</div>
+        </div>
+        <div>
+          <button
+            style="margin-top: 25px"
+            mat-flat-button
+            color="primary"
+            matStepperNext
+            [disabled]="fileName == ''"
+          >
+            Przejdź dalej
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [editable]="true">
+      <form>
+        <ng-template matStepLabel>Wybierz model</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Wybierz model</mat-label>
+          <mat-select [(ngModel)]="selectedModelID" name="models">
+            <mat-option *ngFor="let model of models" [value]="model.value">
+              {{ model.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button
+            mat-flat-button
+            color="primary"
+            style="margin-right: 10px"
+            matStepperPrevious
+          >
+            Wróć
+          </button>
+          <button
+            mat-flat-button
+            color="primary"
+            matStepperNext
+            (click)="sendDataToBackend()"
+          >
+            Przejdź dalej
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Wynik predykcji</ng-template>
+
+      <div *ngIf="newData == undefined"><mat-spinner></mat-spinner></div>
+      <div *ngIf="newData">
+        <h1 style="color: black; text-align: center">Wyniki predykcji</h1>
+        <app-chart-viewer
+          [viewSize]="[500, 250]"
+          [newData]="newData"
+        ></app-chart-viewer>
+        <button
+          mat-flat-button
+          color="primary"
+          style="margin-bottom: 20px"
+          (click)="downloadFile()"
+        >
+          Pobierz plik z danymi
+        </button>
+      </div>
+
+      <div>
+        <button
+          mat-flat-button
+          color="primary"
+          style="margin-right: 10px"
+          matStepperPrevious
+        >
+          Powrót
+        </button>
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="
+            stepper.reset();
+            fileName = '';
+            newData = undefined;
+            predictionID = 0
+          "
+        >
+          Reset
+        </button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>

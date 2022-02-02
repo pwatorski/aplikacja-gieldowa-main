@@ -1,0 +1,29 @@
+table {
+  width: 70%;
+  margin: auto;
+}
+.mat-column-details {
+  width: 200px;
+}
+mat-paginator {
+  width: 70%;
+  margin: auto;
+}
+.flex-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 10px;
+  background-color: white !important;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.add-button {
+  margin: auto;
+  margin-left: 50px;
+  margin-right: 30px;
+}

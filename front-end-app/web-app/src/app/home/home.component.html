@@ -1,0 +1,77 @@
+<div *ngIf="isSmallWindowSize() == false">
+  <mat-grid-list cols="2" rowHeight="5:3">
+    <mat-grid-tile>
+      <div class="title-container">
+        <h1>{{ popularList[0][1] }}</h1>
+        <app-chart-viewer
+          [viewSize]="[chartWidth, chartHeigh]"
+          [companyName]="popularList[0][0]"
+        ></app-chart-viewer>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="title-container">
+        <h1>{{ popularList[1][1] }}</h1>
+        <app-chart-viewer
+          [viewSize]="[chartWidth, chartHeigh]"
+          [companyName]="popularList[1][0]"
+        ></app-chart-viewer>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="title-container">
+        <h1>{{ popularList[2][1] }}</h1>
+        <app-chart-viewer
+          [viewSize]="[chartWidth, chartHeigh]"
+          [companyName]="popularList[2][0]"
+        ></app-chart-viewer></div
+    ></mat-grid-tile>
+    <mat-grid-tile>
+      <div class="title-container">
+        <h1>{{ popularList[3][1] }}</h1>
+        <app-chart-viewer
+          [viewSize]="[chartWidth, chartHeigh]"
+          [companyName]="popularList[3][0]"
+        ></app-chart-viewer></div
+    ></mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div *ngIf="isSmallWindowSize() == true">
+  <mat-grid-list cols="1" rowHeight="5:3">
+    <mat-grid-tile>
+      <div class="title-container">
+        <h1>{{ popularList[0][1] }}</h1>
+        <app-chart-viewer
+          [viewSize]="[500, 250]"
+          [companyName]="popularList[0][0]"
+        ></app-chart-viewer>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="title-container">
+        <h1>{{ popularList[1][1] }}</h1>
+        <app-chart-viewer
+          [viewSize]="[500, 250]"
+          [companyName]="popularList[1][0]"
+        ></app-chart-viewer>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="title-container">
+        <h1>{{ popularList[2][1] }}</h1>
+        <app-chart-viewer
+          [viewSize]="[500, 250]"
+          [companyName]="popularList[2][0]"
+        ></app-chart-viewer></div
+    ></mat-grid-tile>
+    <mat-grid-tile>
+      <div class="title-container">
+        <h1>{{ popularList[3][1] }}</h1>
+        <app-chart-viewer
+          [viewSize]="[500, 250]"
+          [companyName]="popularList[3][0]"
+        ></app-chart-viewer></div
+    ></mat-grid-tile>
+  </mat-grid-list>
+</div>

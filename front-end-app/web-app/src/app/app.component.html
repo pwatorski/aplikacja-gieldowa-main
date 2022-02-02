@@ -1,0 +1,35 @@
+<p>
+  <mat-toolbar color="primary" style="height: auto">
+    <a href="http://localhost:4200/" style="margin-top: 9px"
+      ><img src="../assets/logo.svg" class="logo-image"
+    /></a>
+    <span class="title">S.A.R.N.A.</span>
+    <div class="flex-div">
+      <div>
+        <button mat-raised-button color="primary" (click)="openHomePage()">
+          STRONA GŁÓWNA
+        </button>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" (click)="openListPage()">
+          LISTA SPÓŁEK
+        </button>
+      </div>
+      <div>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="openAddNewCompanyPage()"
+        >
+          DODAJ SPÓŁKĘ
+        </button>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" (click)="openNewDataPage()">
+          WPROWADŹ WŁASNE DANE
+        </button>
+      </div>
+    </div>
+  </mat-toolbar>
+</p>
+<router-outlet></router-outlet>

@@ -1,0 +1,3 @@
+*.pyc
+front-end-app/package-lock.json
+front-end-app/web-app/package-lock.json

@@ -1,0 +1,4 @@
+psql -h 0.0.0.0 -p 5432 -U postgres
+
+sudo ss -lptn 'sport = :5432'
+sudo kill -9 <PID>

@@ -1,0 +1,13 @@
+Pętla (45 min):
+    dla każdej spółki:
+        dla najświeższej akcji w spółce:
+            sprawdź jak stara jest
+            użyj yfinance do pobrania danych w interwale dniowym do daty starej akcji
+            jeśli dostaniesz cos nowego wrzuć do bazy danych
+            wywołaj predykcję używając request_prediction()
+            jak nie to leć dalej 
+
+
+
+* aktualna tzn czy jest z godziny w której sprawdzasz 
+

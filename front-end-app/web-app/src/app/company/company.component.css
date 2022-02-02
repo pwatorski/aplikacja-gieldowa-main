@@ -1,0 +1,21 @@
+.logo-image {
+  height: 50px;
+  margin-right: 10px;
+}
+.title {
+  font-family: "Lucida Console", "Courier New", monospace;
+  size: 120rem;
+}
+
+.mat-toolbar.mat-primary {
+  background: #333333;
+  color: #d9d9d9;
+}
+
+.main-container {
+  margin: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
